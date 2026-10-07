@@ -5,20 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compétences — Nadjim Bemberg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="cur" id="cur"><div class="cur-dot"></div></div>
-
   <!-- HEADER -->
   <header>
-    <a href="index.html" class="logo"><em>N</em>adjim</a>
+    <a href="index.html" class="logo"><em>N</em>adjim Bemberg</a>
     <nav class="header-nav">
       <a href="about.html"      class="nav-btn">À propos</a>
       <a href="skills.html"     class="nav-btn active">Compétences</a>
       <a href="projects.html"   class="nav-btn">Projets</a>
+      <a href="portfolio.html"  class="nav-btn">Portfolio BTS</a>
       <a href="experience.html" class="nav-btn">Expérience</a>
       <a href="contact.html"    class="nav-btn">Contact</a>
     </nav>
@@ -28,11 +27,12 @@
     <div class="skills-layout">
 
       <div class="skills-header">
-        <div>
-          <div class="section-badge reveal">Stack technique</div>
-          <h1 class="section-title reveal d1">Mon<em> arsenal</em>.</h1>
-        </div>
-        <div class="skills-counter reveal">10+</div>
+        <div class="section-badge reveal">Stack technique</div>
+        <h1 class="section-title reveal d1">Compétences <em>techniques</em></h1>
+        <p class="skills-intro reveal d2">
+          Technologies et outils utilisés en formation et en stage. Le niveau indiqué reflète une
+          pratique réelle, pas une estimation approximative.
+        </p>
       </div>
 
       <!-- Tabs -->
@@ -45,92 +45,91 @@
       <!-- Frontend -->
       <div class="skills-panel active" id="tab-frontend">
         <div class="skill-item">
-          <div class="skill-icon-wrap">🌐</div>
+          <div class="skill-icon-wrap">HTML</div>
           <div class="skill-name">HTML / CSS</div>
           <div class="skill-desc">Intégration responsive, animations, mises en page modernes</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span></span>Confirmé</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">⚡</div>
+          <div class="skill-icon-wrap">JS</div>
           <div class="skill-name">JavaScript</div>
           <div class="skill-desc">Manipulation du DOM, logique client, interactions dynamiques</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span></span></span>Opérationnel</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🦾</div>
+          <div class="skill-icon-wrap">TS</div>
           <div class="skill-name">TypeScript</div>
           <div class="skill-desc">Typage statique, code plus propre et moins d'erreurs</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span></span></span>Opérationnel</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🎭</div>
+          <div class="skill-icon-wrap">FIG</div>
           <div class="skill-name">Figma</div>
           <div class="skill-desc">Maquettes, prototypes interactifs, design de composants</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span></span></span>Opérationnel</div>
         </div>
       </div>
 
       <!-- Backend -->
       <div class="skills-panel" id="tab-backend">
         <div class="skill-item">
-          <div class="skill-icon-wrap">🟢</div>
+          <div class="skill-icon-wrap">JS</div>
           <div class="skill-name">Node.js</div>
           <div class="skill-desc">APIs REST, Express, architecture serveur</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span></span></span>Opérationnel</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🐘</div>
+          <div class="skill-icon-wrap">PHP</div>
           <div class="skill-name">PHP</div>
           <div class="skill-desc">Développement côté serveur, logique métier, formulaires</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span></span><span></span></span>Notions</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🗄️</div>
+          <div class="skill-icon-wrap">SQL</div>
           <div class="skill-name">SQL</div>
           <div class="skill-desc">Requêtes, jointures, bases de données relationnelles</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span></span></span>Opérationnel</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🐍</div>
+          <div class="skill-icon-wrap">PY</div>
           <div class="skill-name">Python</div>
           <div class="skill-desc">Scripts, algorithmie, notions de base</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span></span><span></span></span>Notions</div>
         </div>
       </div>
 
       <!-- Outils -->
       <div class="skills-panel" id="tab-tools">
         <div class="skill-item">
-          <div class="skill-icon-wrap">⚙️</div>
+          <div class="skill-icon-wrap">GIT</div>
           <div class="skill-name">Git / GitHub</div>
           <div class="skill-desc">Versioning, branches, collaboration en équipe</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span></span></span>Opérationnel</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🖥️</div>
+          <div class="skill-icon-wrap">VSC</div>
           <div class="skill-name">VS Code</div>
           <div class="skill-desc">Éditeur principal, extensions, productivité</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span></span>Confirmé</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🗂️</div>
-          <div class="skill-name">Adaptabilité</div>
-          <div class="skill-desc">Travail en équipe, communication, gestion du temps</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          <div class="skill-icon-wrap">EQ</div>
+          <div class="skill-name">Travail d'équipe</div>
+          <div class="skill-desc">Communication, gestion du temps, adaptabilité</div>
+          <div class="skill-level"><span class="skill-level-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span></span>Confirmé</div>
         </div>
         <div class="skill-item">
-          <div class="skill-icon-wrap">🌍</div>
+          <div class="skill-icon-wrap">FR/EN</div>
           <div class="skill-name">Langues</div>
           <div class="skill-desc">Français natif · Anglais B2 · Espagnol A2</div>
-          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
         </div>
       </div>
 
     </div>
 
     <footer>
-      <a href="index.html" class="footer-logo"><em>N</em>adjim</a>
-      <span class="footer-copy">© 2025 Nadjim Bemberg</span>
+      <a href="index.html" class="footer-logo"><em>N</em>adjim Bemberg</a>
+      <span class="footer-copy">© 2026 Nadjim Bemberg</span>
     </footer>
   </div>
 

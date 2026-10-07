@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Situation — Plateforme Avis — Nadjim Bemberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo"><em>N</em>adjim Bemberg</a>
+    <nav class="header-nav">
+      <a href="about.html"      class="nav-btn">À propos</a>
+      <a href="skills.html"     class="nav-btn">Compétences</a>
+      <a href="projects.html"   class="nav-btn">Projets</a>
+      <a href="portfolio.html"  class="nav-btn active">Portfolio BTS</a>
+      <a href="experience.html" class="nav-btn">Expérience</a>
+      <a href="contact.html"    class="nav-btn">Contact</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <div class="situation-layout">
+
+      <a href="portfolio.html" class="situation-back">← Retour au portfolio de compétences</a>
+
+      <div class="section-badge reveal">Bloc 2 · SLAM · Épreuve E5</div>
+      <h1 class="section-title reveal d1">Plateforme <em>d'avis</em></h1>
+
+      <div class="situation-meta reveal d2">
+        <div class="situation-meta-item">
+          <div class="situation-meta-l">Cadre</div>
+          <div class="situation-meta-v">Projet de formation — MyDigitalSchool</div>
+        </div>
+        <div class="situation-meta-item">
+          <div class="situation-meta-l">Période</div>
+          <div class="situation-meta-v">[à compléter]</div>
+        </div>
+        <div class="situation-meta-item">
+          <div class="situation-meta-l">Rôle</div>
+          <div class="situation-meta-v">Développeur full-stack [solo / équipe — à préciser]</div>
+        </div>
+        <div class="situation-meta-item">
+          <div class="situation-meta-l">Dépôts</div>
+          <div class="situation-meta-v"><a href="https://github.com/nadjimbemberg/mds-avis" target="_blank" class="comp-link">mds-avis</a> · <a href="https://github.com/nadjimbemberg/API-avis" target="_blank" class="comp-link">API-avis</a></div>
+        </div>
+      </div>
+
+      <div class="situation-section reveal">
+        <div class="situation-h2">Contexte et besoin</div>
+        <div class="situation-body">
+          <p>
+            [À compléter par toi : quel était le besoin de départ ? Une consigne de formation, un projet fil rouge,
+            une commande fictive d'entreprise ? Qui étaient les utilisateurs visés (clients laissant un avis,
+            modérateurs) ?]
+          </p>
+          <p>
+            Le projet se compose de deux briques séparées mais complémentaires : un frontend qui gère l'expérience
+            utilisateur, et une API REST qui expose et sécurise les données. Cette séparation reproduit une
+            architecture professionnelle client/serveur découplée.
+          </p>
+        </div>
+      </div>
+
+      <div class="situation-section reveal" id="conception">
+        <div class="situation-h2">Conception et développement de la solution applicative</div>
+        <div class="situation-body">
+          <p><b>Frontend — mds-avis</b> (Next.js 14, App Router, TypeScript, Tailwind CSS) :</p>
+          <ul>
+            <li>Parcours d'authentification complet : connexion, inscription, mot de passe oublié / réinitialisation.</li>
+            <li>Consultation des avis publics, création et modification des avis personnels.</li>
+            <li>Espace profil utilisateur et panneau d'administration réservé au rôle admin, pour valider les avis en attente.</li>
+            <li>Composants réutilisables (<code>Navbar</code>, <code>StarRating</code>) et utilitaires centralisés dans <code>lib/</code> (appels API, authentification, types TypeScript partagés).</li>
+          </ul>
+          <p><b>Backend — API-avis</b> (Express 5, TypeScript) :</p>
+          <ul>
+            <li>14 endpoints organisés par domaine : authentification (<code>/register</code>, <code>/login</code>, <code>/forgot-password</code>, <code>/reset-password</code>, <code>/logout</code>), gestion des avis (CRUD sur <code>/avis</code>), profil (<code>/me</code>, <code>/change-password</code>), modération (<code>/authorize/avis/:id</code>).</li>
+            <li>Architecture en couches : <code>routes/</code> → <code>controllers/</code> → <code>middleware/</code> (validation, authentification), avec Prisma comme ORM.</li>
+            <li>Authentification par JWT + hachage des mots de passe en Argon2 ; session invalidée via un système de version de token (<code>tokenVersion</code>) lors d'une déconnexion ou d'un changement de mot de passe.</li>
+            <li>Envoi d'e-mails (réinitialisation de mot de passe) via Nodemailer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="situation-section reveal" id="donnees">
+        <div class="situation-h2">Gérer les données</div>
+        <div class="situation-body">
+          <p>
+            Base de données PostgreSQL hébergée sur Neon, modélisée avec Prisma (<code>prisma/schema.prisma</code> +
+            migrations versionnées). Le modèle gère des avis pouvant être créés de façon anonyme ou authentifiée, des
+            comptes utilisateurs avec rôle (utilisateur / admin), et un mécanisme de révocation de session par
+            versionnage de token. Un seed initial permet d'amorcer un compte administrateur pour la modération.
+          </p>
+          <p>
+            [À compléter par toi : exemple concret de requête Prisma/SQL significative (jointure avis + utilisateur,
+            filtre par statut de modération...) — capture ou extrait de <code>schema.prisma</code>.]
+          </p>
+        </div>
+        <div class="code-block"><code>// Exemple à remplacer par un extrait réel de prisma/schema.prisma
+model Avis {
+  id        String   @id @default(cuid())
+  note      Int
+  commentaire String
+  statut    StatutAvis @default(EN_ATTENTE)
+  auteurId  String?
+  createdAt DateTime @default(now())
+}</code></div>
+      </div>
+
+      <div class="situation-section reveal" id="maintenance">
+        <div class="situation-h2">Maintenance corrective ou évolutive</div>
+        <div class="todo-box">
+          <b>À compléter.</b> Choisis un vrai bug corrigé ou une évolution ajoutée sur mds-avis ou API-avis
+          (ex. un commit qui corrige la validation d'un formulaire, ajoute un filtre, corrige une faille dans la
+          gestion de session...). Décris : l'anomalie constatée, comment tu l'as identifiée, la correction apportée,
+          comment tu as vérifié qu'elle ne cassait rien d'autre (non-régression), et référence le commit /
+          la note de version correspondante.
+        </div>
+      </div>
+
+      <div class="situation-section reveal">
+        <div class="situation-h2">Productions associées</div>
+        <div class="prod-grid">
+          <div class="prod-card">
+            <div class="prod-card-img">
+              <img src="assets/img/avis-auth.png" alt="Capture d'écran — page de connexion / inscription" onerror="this.remove()">
+              Capture à ajouter : page de connexion / inscription
+            </div>
+            <div class="prod-card-cap">Parcours d'authentification — mds-avis</div>
+          </div>
+          <div class="prod-card">
+            <div class="prod-card-img">
+              <img src="assets/img/avis-list.png" alt="Capture d'écran — liste des avis et formulaire de dépôt" onerror="this.remove()">
+              Capture à ajouter : liste des avis + formulaire de dépôt
+            </div>
+            <div class="prod-card-cap">Consultation et création d'un avis</div>
+          </div>
+          <div class="prod-card">
+            <div class="prod-card-img">
+              <img src="assets/img/avis-admin.png" alt="Capture d'écran — panneau d'administration" onerror="this.remove()">
+              Capture à ajouter : panneau d'administration
+            </div>
+            <div class="prod-card-cap">Modération des avis en attente</div>
+          </div>
+          <div class="prod-card">
+            <div class="prod-card-img">
+              <img src="assets/img/avis-schema.png" alt="Schéma du modèle de données Prisma" onerror="this.remove()">
+              Capture à ajouter : schéma Prisma ou diagramme de classes
+            </div>
+            <div class="prod-card-cap">Modèle de données</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="situation-section reveal">
+        <div class="situation-h2">Compétences mobilisées</div>
+        <div class="comp-tags">
+          <span class="comp-tag">Concevoir et développer une solution applicative</span>
+          <span class="comp-tag">Gérer les données</span>
+          <span class="comp-tag">Assurer la maintenance corrective ou évolutive</span>
+        </div>
+      </div>
+
+      <div class="situation-section reveal">
+        <div class="situation-h2">Bilan</div>
+        <div class="situation-body">
+          <p>
+            [À compléter par toi : ce que tu as appris, une difficulté technique réelle rencontrée (ex. gestion des
+            cookies httpOnly entre le frontend et l'API sur deux domaines différents, gestion des rôles admin...),
+            et ce que tu ferais différemment aujourd'hui — tests automatisés plus poussés, documentation API, etc.]
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <a href="index.html" class="footer-logo"><em>N</em>adjim Bemberg</a>
+      <span class="footer-copy">© 2026 Nadjim Bemberg</span>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
